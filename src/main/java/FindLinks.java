@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-public class FindLinks {
+public class FindLinks implements DeadLinks {
     public int getResponseCode(String link) {
         URL url;
         HttpURLConnection con = null;
@@ -39,7 +39,8 @@ public class FindLinks {
 
 
         List<WebElement> links = driver.findElements(By.xpath("//*[@href]"));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
 
 
         List<String> allLinks = links
@@ -51,9 +52,9 @@ public class FindLinks {
         driver.quit();
         return allLinks;
     }
-
-    int countBadLinks(String link) {
-        List<String> allUrls = allLinks(link);
+    @Override
+    public List<String> badLinks(String url) {
+        List<String> allUrls = allLinks(url);
         System.out.println(allUrls.size());
         List<String> badUrls = new ArrayList<String>();
         String badLinks = "";
@@ -63,16 +64,14 @@ public class FindLinks {
             if (code == 404) {
                 i++;
                 badUrls.add(linkk);
-
             }
-
         }
         System.out.println(i);
-        for (String url : badUrls) {
-            badLinks = url;
+        for (String urls : badUrls) {
+            badLinks = urls;
             System.out.println(badLinks);
         }
 
-        return i;
+        return badUrls;
     }
 }
