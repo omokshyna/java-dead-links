@@ -23,6 +23,7 @@ dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     compile 'com.google.guava:guava:22.0'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.7.2'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'

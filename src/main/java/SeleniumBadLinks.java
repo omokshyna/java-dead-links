@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-public class FindLinks implements DeadLinks {
+public class SeleniumBadLinks implements DeadLinks {
     public int getResponseCode(String link) {
         URL url;
         HttpURLConnection con = null;
@@ -39,9 +39,7 @@ public class FindLinks implements DeadLinks {
 
 
         List<WebElement> links = driver.findElements(By.xpath("//*[@href]"));
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-
+        driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         List<String> allLinks = links
                 .stream()
@@ -52,6 +50,7 @@ public class FindLinks implements DeadLinks {
         driver.quit();
         return allLinks;
     }
+
     @Override
     public List<String> badLinks(String url) {
         List<String> allUrls = allLinks(url);
