@@ -1,11 +1,9 @@
 # Step 2
 Having a PR from `Step1` for the `master` branch, rework the code in a way so the client code from `Main.java` compiles and the output still procduces result making test green.
 
-~~
-# Step 1
+~~# Step 1
+Please suggest a PR with a java code implementing the below contract. Remember to implement a test verifying the output format also.~~
 
-Please suggest a PR with a java code implementing the below contract. Remember to implement a test verifying the output format also.
-~~
 # Java dead links
 
 ## Input arguments
