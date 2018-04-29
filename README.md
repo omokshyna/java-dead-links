@@ -2,7 +2,10 @@
 * Attention to requirement details counts
 * No commented code
 
-# Step 1
+# Step 2
+Having a PR from `Step 1` for the `master` branch, rework the code in a way so the client code from `Main.java` compiles and the output still procduces result making test green.
+
+# ~~Step 1~~
 Please suggest a PR with a 
 * Java code implementing the below contract;
 * Test calling `main(String[] args)` and verifying the program system output correctness. Several options to consider:
