@@ -1,3 +1,6 @@
+# Step 1
+Please suggest a PR with a java code implementing the below contract. Remember to implement a test verifying the output format also.
+
 # Java dead links
 
 ## Input arguments
@@ -21,4 +24,4 @@ The program expects target url to take HTML(and check for dead links) from.
 }
 ```
 
-Please suggest a PR with a java code implementing the above contract. Remember to implement also a test verifying the output format.
+It is ok to use YML/XML or any other format considering the test verifying this format is available.
