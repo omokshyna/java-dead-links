@@ -10,6 +10,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class JsoupBadLinks implements DeadLinks {
+    private static final int BAD_CODE = 404;
+
     public int getResponseCode(String link) {
         URL url;
         HttpURLConnection con = null;
@@ -52,7 +54,7 @@ public class JsoupBadLinks implements DeadLinks {
         int i = 0;
         for (String linkk : allUrls) {
             int code = getResponseCode(linkk);
-            if (code == 404) {
+            if (code == BAD_CODE) {
                 i++;
                 badUrls.add(linkk);
             }

@@ -15,5 +15,13 @@ public class SeleniumBadLinksTest {
         assertEquals(result, links.size());
     }
 
+    @Test
+    public void JsoupBadLinksTest() throws Exception {
+        DeadLinks deadLinks = new JsoupBadLinks();
+        List<String> links = deadLinks.badLinks("https://android.stackexchange.com/questions/4538/can-i-emulate-a-bluetooth-keyboard-with-my-android-device");
+        int result = 10;
+        assertEquals(result, links.size());
+    }
+
 
 }
