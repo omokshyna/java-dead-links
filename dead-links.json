@@ -1,13 +1,24 @@
 {
-  "total": 45,
+  "total": 260,
   "404": {
-    "urls": [],
-    "size": 0
+    "urls": [
+      "https://stackexchange.com/users/?tab\u003dinbox",
+      "https://stackexchange.com/users/?tab\u003dreputation",
+      "https://stackoverflow.com/posts/878348/edit",
+      "https://stackoverflow.com/posts/878362/edit",
+      "https://stackoverflow.com/posts/878559/edit",
+      "https://stackoverflow.com/posts/878496/edit",
+      "https://stackoverflow.com/posts/19183119/edit",
+      "https://stackoverflow.com/questions/878348/where-do-i-configure-log4j-in-a-junit-test-class?lastactivity"
+    ],
+    "size": 8
   },
-  "dead": 0,
+  "dead": 9,
   "50x": {
-    "urls": [],
-    "size": 0
+    "urls": [
+      "https://linkedin.com/company/stack-overflow"
+    ],
+    "size": 1
   },
-  "url": "https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches"
+  "url": "https://stackoverflow.com/questions/878348/where-do-i-configure-log4j-in-a-junit-test-class"
 }
