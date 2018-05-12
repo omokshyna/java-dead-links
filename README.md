@@ -1,6 +1,4 @@
-# Java dead links tutorial
-
-## Step 1
+# Step 1
 Please suggest a PR with a 
 * Java code implementing the below contract;
 * Test calling `main(String[] args)` verifying the sys output correctness, several options to consider:
@@ -8,10 +6,10 @@ Please suggest a PR with a
   * See http://stefanbirkner.github.io/system-rules/ rules helping catching system output, `System.err and System.out` section in particular
 
 
-### Input arguments
+## Input arguments
 The program expects target url to take HTML(and check for dead links) from.
 
-### Output format
+## Output format
 The program execution result should be written to `System.out`. Here is example output:
 
 ```
