@@ -1,5 +1,10 @@
 # Step 1
-Please suggest a PR with a java code implementing the below contract. Remember to implement a test verifying the output format also.
+Please suggest a PR with a 
+* Java code implementing the below contract;
+* Test verifying the sys output correctness also, several options to consider
+  * Make use of `Before/After` junit annotations to replace/restore `System.out` `Writer`, see [SO](https://stackoverflow.com/a/1119559) answer for details
+  * See http://stefanbirkner.github.io/system-rules/ rules helping catching system output, `System.err and System.out` section in particular
+    
 
 # Java dead links
 
@@ -7,6 +12,7 @@ Please suggest a PR with a java code implementing the below contract. Remember t
 The program expects target url to take HTML(and check for dead links) from.
 
 ## Output format
+The program execution result should be written to `System.out`. Here is example output:
 
 ```
 {
