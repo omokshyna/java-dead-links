@@ -1,12 +1,12 @@
+# Java dead links tutorial
+
 # Step 1
 Please suggest a PR with a 
 * Java code implementing the below contract;
 * Test verifying the sys output correctness also, several options to consider
   * Make use of `Before/After` junit annotations to replace/restore `System.out` `Writer`, see [SO](https://stackoverflow.com/a/1119559) answer for details
   * See http://stefanbirkner.github.io/system-rules/ rules helping catching system output, `System.err and System.out` section in particular
-    
 
-# Java dead links
 
 ## Input arguments
 The program expects target url to take HTML(and check for dead links) from.
