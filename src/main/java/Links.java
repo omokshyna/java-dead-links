@@ -1,3 +1,7 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
@@ -18,7 +22,7 @@ import java.util.regex.Pattern;
 public interface Links extends Iterable<URL> {
     Iterator<URL> iterator();
     String toString();
-    JSONObject printToJSON();
+    JSONObject toJSON();
 
     class HTML implements Links {
         private String inputURL;
@@ -95,24 +99,23 @@ public interface Links extends Iterable<URL> {
 
         @Override
         public String toString() {
-            String document = new String();
-            if (this.iterator().hasNext()) {
-                for (Iterator<URL> it = this.iterator(); it.hasNext(); ) {
-                    document = document + it.next().toString() + "\n";
-                }
-            }
-            return document;
+            JSONObject json = this.toJSON();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(json.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            return prettyJsonString;
         }
 
 
         @Override
-        public JSONObject printToJSON() {
+        public JSONObject toJSON() {
             JSONObject obj = new JSONObject();
             obj.put("total", this.links.size());
 
             obj.put("dead", this.deadLinks.get("dead").size());
 
-            obj.put("url", this.inputURL.toString());
+            obj.put("url", this.inputURL);
 
             JSONObject notFoundObj = new JSONObject();
             notFoundObj.put("size", this.deadLinks.get("404").size());

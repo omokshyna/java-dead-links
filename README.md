@@ -1,15 +1,28 @@
+
 # Step 2
-Having a PR from `Step1` for the `master` branch, rework the code in a way so the client code from `Main.java` compiles and the output still procduces result making test green.
+Having a PR from `Step1` for the `master` branch, rework the code in a way so the client code from [`Main.java`](https://github.com/ekondrashev/java-dead-links/blob/step2/src/main/java/Main.java) compiles and the output still produces result making test green:
+```
+class Main {
+    public static void main(String[] args) {
+        Links html = new Links.HTML(args[0]);
+        System.out.println(html.toString());
+    }
+}
+```
 
 # ~~Step 1~~
-~~Please suggest a PR with a java code implementing the below contract. Remember to implement a test verifying the output format also.~~
+~~Please suggest a PR with a~~
+* ~~Java code implementing the below contract;~~
+* ~~Test calling `main(String[] args)` verifying the sys output correctness, several options to consider:~~
+  * ~~Make use of `Before/After` junit annotations to replace/restore `System.out` `Writer`, see [SO](https://stackoverflow.com/a/1119559) answer for details~~
+  * ~~See http://stefanbirkner.github.io/system-rules/ rules helping catching system output, `System.err and System.out` section in particular~~
 
-# Java dead links
 
 ## Input arguments
 The program expects target url to take HTML(and check for dead links) from.
 
 ## Output format
+The program execution result should be written to `System.out`. Here is example output:
 
 ```
 {
