@@ -22,7 +22,6 @@ import java.util.regex.Pattern;
 public interface Links extends Iterable<URL> {
     Iterator<URL> iterator();
     String toString();
-    JSONObject toJSON();
 
     class HTML implements Links {
         private String inputURL;
@@ -99,17 +98,6 @@ public interface Links extends Iterable<URL> {
 
         @Override
         public String toString() {
-            JSONObject json = this.toJSON();
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            JsonParser jp = new JsonParser();
-            JsonElement je = jp.parse(json.toJSONString());
-            String prettyJsonString = gson.toJson(je);
-            return prettyJsonString;
-        }
-
-
-        @Override
-        public JSONObject toJSON() {
             JSONObject obj = new JSONObject();
             obj.put("total", this.links.size());
 
@@ -135,7 +123,11 @@ public interface Links extends Iterable<URL> {
             serverErrObj.put("urls", serverErrURLs);
             obj.put("50x", serverErrObj);
 
-            return obj;
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(obj.toJSONString());
+            String prettyJsonString = gson.toJson(je);
+            return prettyJsonString;
         }
 
         public HTML(String url) {

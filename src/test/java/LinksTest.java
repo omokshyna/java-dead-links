@@ -32,14 +32,6 @@ public class LinksTest {
     }
 
     @Test
-    public void testJSON() {
-        Links tester = new Links.HTML("https://www.yegor256.com/elegant-objects.html");
-        JSONObject json = new JSONObject(tester.toJSON());
-        String url = json.get("url").toString();
-        assertEquals(url, "https://www.yegor256.com/elegant-objects.html");
-    }
-
-    @Test
     public void testOut() {
         Links tester = new Links.HTML("https://www.yegor256.com/elegant-objects.html");
         System.out.println(tester.toString());
