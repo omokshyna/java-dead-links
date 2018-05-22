@@ -9,8 +9,6 @@ Please suggest a PR with a
   * Make use of `Before/After` junit annotations to replace/restore `System.out` `Writer`, see [SO](https://stackoverflow.com/a/1119559) answer for details
   * See http://stefanbirkner.github.io/system-rules/ rules helping to gather system output. See `System.err and System.out` section in particular
 
-Please do _not_ commit commented code.
-
 ## Input arguments
 The program expects target url to take HTML(and check for dead links) from.
 
