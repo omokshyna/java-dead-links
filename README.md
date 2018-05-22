@@ -1,3 +1,6 @@
+# Remember
+That your attention to requirement details counts
+
 # Step 1
 Please suggest a PR with a 
 * Java code implementing the below contract;
@@ -28,4 +31,4 @@ The program execution result should be written to `System.out`. Here is example 
 }
 ```
 
-It is ok to use YML/XML or any other format considering the test verifying this format is available.
+* It is ok to use YML/XML or any other format considering the test verifying this format is available.
