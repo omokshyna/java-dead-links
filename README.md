@@ -2,7 +2,21 @@
 * Attention to requirement details counts
 * No commented code
 
-# Step 3
+## What's new
+This step introduced `HTTP` abstraction layer. 
+```
+interface HTTP {
+    int code(URL url);
+}
+```
+The purpose of this interface is to hide all the transport specifics simplifying `Links.HTML` logic.
+
+# Step 4
+
+Basing on PR from previous step, rework the code, introducing `HTTP.Default` implementation 
+that Links.HTML should expect as second argument.
+
+# ~~Step 3~~
 Basing on PR from `Step 2`, rework the code in a way to meet following requirements
 * Move expected JSON(YML/XML) from test sources out to `src/test/resources` reading the it with `Class.getResource*`
 * Study [Typical Mistakes in Java Code](https://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html) and make sure that at least the test case method namings follow [described](https://www.yegor256.com/2014/04/27/typical-mistakes-in-java-code.html#test-method-names) convention.
