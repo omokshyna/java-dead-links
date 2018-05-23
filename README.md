@@ -1,3 +1,7 @@
+# Important considerations
+* Attention to requirement details counts
+* No commented code
+
 # Step 3
 Basing on PR from `Step 2`, rework the code in a way to meet following requirements
 * Move expected JSON(YML/XML) from test sources out to `src/test/resources` reading the it with `Class.getResource*`
@@ -45,4 +49,4 @@ The program execution result should be written to `System.out`. Here is example 
 }
 ```
 
-It is ok to use YML/XML or any other format considering the test verifying this format is available.
+* It is ok to use YML/XML or any other format considering the test verifying this format is available.
