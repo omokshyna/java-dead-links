@@ -2,7 +2,18 @@
 * Attention to requirement details counts
 * No commented code
 
-# Step 1
+# Step 2
+Having a PR from `Step1` for the `master` branch, rework the code in a way so the client code from [`Main.java`](https://github.com/ekondrashev/java-dead-links/blob/step2/src/main/java/Main.java) compiles and the output still produces result making test green:
+```
+class Main {
+    public static void main(String[] args) {
+        Links html = new Links.HTML(args[0]);
+        System.out.println(html.toString());
+    }
+}
+```
+
+# ~~Step 1~~
 Please suggest a PR with a 
 * Java code implementing the below contract;
 * Test calling `main(String[] args)` and verifying the program system output correctness. Several options to consider:
