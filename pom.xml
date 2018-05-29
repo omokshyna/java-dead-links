@@ -10,17 +10,11 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.11.2</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.junit.jupiter</groupId>-->
-            <!--<artifactId>junit-jupiter-engine</artifactId>-->
-            <!--<version>5.1.0</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -31,7 +25,6 @@
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/junit/junit &ndash;&gt;-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -51,7 +44,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!-- Compile project jar to appdir -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -66,7 +58,6 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- Copy dependencies to appdir -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -102,11 +93,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.21.0</version>
-                <!--<configuration>-->
-                    <!--<includes>-->
-                        <!--<include>src/test/java/LinksTest.java</include>-->
-                    <!--</includes>-->
-                <!--</configuration>-->
             </plugin>
         </plugins>
     </build>
