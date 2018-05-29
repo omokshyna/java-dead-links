@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public interface Links extends Iterable<URL> {
+interface Links extends Iterable<URL> {
     Iterator<URL> iterator();
     String toString();
 
