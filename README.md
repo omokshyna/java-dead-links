@@ -14,7 +14,8 @@ The purpose of this interface is to hide all the transport specifics simplifying
 # Step 4
 
 Basing on PR from previous step, rework the code, introducing `HTTP.Default` implementation 
-that Links.HTML should expect as second argument.
+that `Links.HTML` should expect as second argument. 
+Try moving existing code related to the transport aspects to that implementation. The test should still be green.
 
 # ~~Step 3~~
 Basing on PR from `Step 2`, rework the code in a way to meet following requirements
