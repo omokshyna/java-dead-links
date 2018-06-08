@@ -1,5 +1,12 @@
 import java.net.URL;
 
 interface HTTP {
-    int code(URL url);
+
+    Response response(URL url);
+
+    interface Response {
+        int code();
+        String asString();
+    }
+
 }

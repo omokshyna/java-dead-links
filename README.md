@@ -6,7 +6,14 @@
 This step introduced `HTTP` abstraction layer. 
 ```
 interface HTTP {
-    int code(URL url);
+
+    Response response(URL url);
+
+    interface Response {
+        int code();
+        String asString();
+    }
+
 }
 ```
 The purpose of this interface is to hide all the transport specifics simplifying `Links.HTML` logic.
