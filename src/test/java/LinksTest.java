@@ -28,13 +28,13 @@ public class LinksTest {
 
     @Test
     public void testIfURLIsMalformed() throws MalformedURLException {
-        Links tester = new Links.HTML("Roses are red, URLs are blue");
+        Links tester = new Links.HTML("Roses are red, URLs are blue", new HTTP.Default());
         assertEquals(((Links.HTML) tester).errorStatus ,"Error while reading parent URL.");
     }
 
     @Test
     public void testIfJSONOutputIsValid() throws FileNotFoundException {
-        Links actual = new Links.HTML("https://www.yegor256.com/elegant-objects.html");
+        Links actual = new Links.HTML("https://www.yegor256.com/elegant-objects.html", new HTTP.Default());
         System.out.println(actual.toString());
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

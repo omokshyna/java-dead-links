@@ -10,14 +10,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 interface Links extends Iterable<URL> {
     Iterator<URL> iterator();
@@ -28,17 +25,7 @@ interface Links extends Iterable<URL> {
         private ArrayList<URL> links;
         private HashMap<String, ArrayList<URL>> deadLinks;
         public String errorStatus;
-
-        private boolean isValidLink(String url) {
-            String urlRegex = "^(http|https)://[-a-zA-Z0-9+&@#/%?=~_|,!:.;]*[-a-zA-Z0-9+@#/%=&_|]";
-            Pattern pattern = Pattern.compile(urlRegex);
-            Matcher m = pattern.matcher(url);
-            if (m.matches()) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        private HTTP http;
 
         private ArrayList<URL> retrieveLinks() {
             ArrayList<URL> tempLinks = new ArrayList<>();
@@ -46,13 +33,16 @@ interface Links extends Iterable<URL> {
                 Document document = Jsoup.connect(this.inputURL.toString()).get();
                 Elements documentLinks = document.select("a[href]");
                 for (Element link : documentLinks) {
-                    URL tempLink = new URL(link.attr("abs:href").toString());
-                    if (isValidLink(tempLink.toString())) {
-                        tempLinks.add(tempLink);
+                    try {
+                        String attr = link.attr("abs:href");
+                        if (attr.equals("") || attr.contains("mailto") || attr.contains("tel") || attr.contains("javascript")) {
+                            continue;
+                        }
+                        tempLinks.add(new URL(attr));
+                    } catch (MalformedURLException e) {
+                        continue;
                     }
                 }
-            } catch (MalformedURLException e) {
-                errorStatus = "One of the retrieved links is malformed";
             } catch (IOException e) {
                 errorStatus = "IOException while connecting";
             } catch (IllegalArgumentException e) {
@@ -62,14 +52,10 @@ interface Links extends Iterable<URL> {
         }
 
         private int getStatus(URL url) {
-            try {
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-                int statusCode = connection.getResponseCode();
-                return statusCode;
-            } catch (IOException e) {
-                return 0;
+            if (http == null) {
+                throw new NullPointerException();
             }
+            return http.response(url).code();
         }
 
         private void getDeadLinks() {
@@ -130,9 +116,10 @@ interface Links extends Iterable<URL> {
             return prettyJsonString;
         }
 
-        public HTML(String url) {
+        public HTML(String url, HTTP http) {
             this.inputURL = url;
             this.links = retrieveLinks();
+            this.http = http;
             this.getDeadLinks();
         }
     }
